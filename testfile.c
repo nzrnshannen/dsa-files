@@ -1,7 +1,14 @@
 #include<stdio.h>
+void printArray();
 int main()
 {
-    int size;
-    printf("Size of array: ");
-    
+   printArray();
+   printArray();
+   printArray();
+   printArray();
 }
+void printArray()
+{
+    printf("Ga um-om ug sopas si simone");
+}
+

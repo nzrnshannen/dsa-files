@@ -14,7 +14,7 @@ int hash(int elem);
 void insert(Dictionary D, int elem);
 void delete(Dictionary D, int elem);
 void populate(Dictionary D);
-bool isMember(Dictionary D);
+// bool isMember(Dictionary D);
 
 void initDict(Dictionary D)
 {
@@ -62,7 +62,6 @@ void insert(Dictionary D, int elem)
 {
     int key;
     key = hash(elem);
-    printf("key = %d\n", key);
 
     if(last<SIZE && D[key]!=elem)
     {
@@ -85,7 +84,7 @@ void insert(Dictionary D, int elem)
     {
         printf("\n\t>> Cannot add anymore elements <<\n\n");
     }
-}
+
 
 void populate(Dictionary D)
 {
@@ -107,12 +106,12 @@ void populate(Dictionary D)
 int main()
 {
     Dictionary D;
-    printf("test init");
+    printf("test init\n");
     initDict(D);
-    printf("test populate");
+    printf("test populate\n");
     populate(D);
 
-    printf("test display");
+    printf("test display\n");
     displayDict(D);
 
     return 0;

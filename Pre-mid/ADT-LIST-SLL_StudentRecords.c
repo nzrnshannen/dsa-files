@@ -547,8 +547,8 @@ int main()
 {
     LIST section_A;
     studRec stud1 = {19103991, "Shannen", "Nazareno", 'T', "Information Systems", DCISM, 3}; 
-    studRec stud2 = {9999, "Clint", "Englis", 'C', "Information Systems", DCISM, 3};
-    studRec stud3 = {9234, "Shannen", "Englis", 'C', "Information Systems", DCISM, 2};
+    studRec stud2 = {9999, "Butter", "Cups", 'C', "Information Systems", DCISM, 3};
+    studRec stud3 = {9234, "Shannen", "Nazars", 'C', "Information Systems", DCISM, 2};
     studRec stud4 = {1351, "test1", "test1", 'A', "Electrical Engineering", DEEE, 1};
     initList(&section_A);
 
