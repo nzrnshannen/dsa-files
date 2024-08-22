@@ -23,7 +23,6 @@ void initTree(BST * Tree);
 void populate(BST *Tree);
 void insertMem(BST *Tree, Product elem);
 void deleteMem(BST *Tree, Product elem);
-Product deleteMax(BST *Tree);
 
 void preorder(BST Tree);
 void postorder(BST Tree);
@@ -54,24 +53,6 @@ void insertMem(BST *Tree, Product elem)
 }
 
 
-Product deleteMax(BST *Tree)
-{
-    BST *trav, temp;
-    Product retval;
-
-    for(trav=Tree; *trav!=NULL && (*trav)->RC!=NULL; trav=&(*trav)->RC){}
-
-    if(*trav!=NULL) //if tree is not empty
-    {
-        temp = *trav;
-        retval = temp->item;
-        *trav = temp->LC; //it's like adopting the child of the rightmost node to be deleted :)
-        free(temp);
-    }
-
-    return retval;
-}
-
 void deleteMem(BST *Tree, Product elem)
 {
     BST *trav;
@@ -97,7 +78,20 @@ void deleteMem(BST *Tree, Product elem)
             //using the successor (we can also use the predecessor but we do = deleteMin(&temp->RC) instead ^_^)
 
             //using temp (PN) only since we're gonna be modifying the data part only
-            temp->item = deleteMax(&temp->LC);
+            Product val;
+            BST *trav2, temp2;
+
+            for(trav2=Tree; *trav!=NULL && (*trav2)->RC!=NULL; trav2=&(*trav2)->RC){}
+
+            if(*trav2!=NULL)
+            {
+                temp2 = *trav2;
+                val = temp2->item;
+                *trav2 = temp2->LC;
+                free(temp2);
+            }
+
+            temp->item = val;
         }
     }
 }
@@ -180,7 +174,6 @@ int main()
 	Product p4 = {"Lindt", 235.00, 50, {24, 11, 2024}};
 	Product p5 = {"Goya", 90.00, 100, {8, 8, 2024}};
     
-
     initTree(&myTree);
     insertMem(&myTree, p1);
     insertMem(&myTree, p2);
@@ -191,7 +184,7 @@ int main()
     display(myTree);
 
     deleteMem(&myTree, p2);
-    display(myTree); //I used level-order for displaying ^_^
+    display(myTree); 
 
     return 0;
 }

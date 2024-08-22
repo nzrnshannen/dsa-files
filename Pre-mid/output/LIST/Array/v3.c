@@ -66,8 +66,7 @@ void insertElem(List *L, char elem)
         if(L->elemPtr==NULL)
         {
             printf("\nMemory allocation failure\n");
-            exit(1);
-        }
+            exit(1        }
     }
     
     L->elemPtr[L->count++] = elem;

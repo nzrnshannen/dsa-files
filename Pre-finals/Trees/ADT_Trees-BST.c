@@ -105,7 +105,7 @@ int deleteMax(Tree *T)
     {
         temp = *trav;
         num = temp->data;
-        *trav = temp->LC;
+        *trav = temp->LC; 
         free(temp);
     }
     return num;
@@ -122,12 +122,12 @@ void deleteElem(Tree *T, int node)
 
     if(*trav!=NULL)
     {
-        Tree temp;
+        Tree temp; 
         temp = *trav;
 
         if(temp->LC==NULL || temp->RC==NULL)
         {
-            *trav = (temp->LC!=NULL) ? temp->LC : temp->RC;
+            *trav = (temp->LC!=NULL) ? temp->LC : temp->RC;.
             free(temp);
         }
         else
